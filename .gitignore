@@ -14,11 +14,18 @@ __pycache__/
 # `.ipynb` is the student's executed deliverable.
 
 # Lab artifacts (regenerated on every run; do not commit)
-data/pref/
+# Weights are huge (120MB/adapter) — GitHub blocks >100MB. Commit only the
+# small config/metric files that rubric.md grades on.
+data/pref/*
+!data/pref/train.parquet
 data/eval_prompts.json
-adapters/sft-mini/
-adapters/dpo/
+adapters/sft-mini/*
+!adapters/sft-mini/adapter_config.json
+adapters/dpo/*
+!adapters/dpo/adapter_config.json
+!adapters/dpo/dpo_metrics.json
 adapters/orpo/
+adapters/merged-fp16/
 gguf/
 *.gguf
 runs/
@@ -38,3 +45,6 @@ hf_cache/
 .idea/
 .vscode/
 *.swp
+
+# Colab export bundle (230MB — never commit)
+artifacts.zip
