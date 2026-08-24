@@ -24,7 +24,7 @@
 | `COMPUTE_TIER` env | T4 |
 | Total cost | $0 (free Colab) |
 
-**Ba sai lệch so với repo gốc** (bắt buộc phải sửa mới chạy được, ghi lại để reproduce):
+**Ba sai lệch so với repo gốc**ssss (bắt buộc phải sửa mới chạy được, ghi lại để reproduce):
 
 1. `5CD-AI/Vietnamese-alpaca-cleaned` trong README **không còn tồn tại trên HuggingFace Hub** (`DatasetNotFoundError`). Thay bằng `tsdocode/vi_alpaca_clean` — cùng schema `instruction/input/output`, 27k dòng, CC-BY-4.0, nên hàm `format_alpaca_to_chat` chạy nguyên si không cần sửa.
 2. Base model `Qwen2.5-3B-bnb-4bit` (bản **base**, không phải `-Instruct`) ship kèm tokenizer **không có `chat_template`**, nên `apply_chat_template` văng `ValueError`. Fix: `get_chat_template(tokenizer, chat_template="qwen-2.5")` sau mỗi lần load model.
