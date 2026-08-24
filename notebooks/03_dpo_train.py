@@ -40,7 +40,7 @@ else:
 
 # Hyperparameters from deck §5.2 (TRL DPOTrainer implementation frame)
 BETA = float(os.environ.get("DPO_BETA", "0.1"))
-LR = float(os.environ.get("DPO_LR", "5e-7"))
+LR = float(os.environ.get("DPO_LR", "5e-6"))   # nang tu 5e-7: LoRA chi train 0.96% params (xem REFLECTION §6)
 EPOCHS = int(os.environ.get("DPO_EPOCHS", "1"))
 
 REPO_ROOT = Path.cwd().parent if Path.cwd().name == "notebooks" else Path.cwd()
